@@ -20,7 +20,7 @@ export default  {
 
          const token = await JWT.getToken({username, email,id: user.id})
          
-         user.token = token;
+         //user.token = token;
 
         }
     },
