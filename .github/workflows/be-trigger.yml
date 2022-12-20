@@ -12,7 +12,7 @@ jobs:
           submodules: recursive
       - name: Update module
         run: |
-          git submodule update --init --recursive --checkout -f --remote -- https://github.com/yousouf9/type-srv.git
+          git submodule update --init --recursive  --remote
           git config --global user.name "yousouf9"
           git config --global user.email "ibraheemyousouf@gmail.com"
           git commit -am "deploy: ${{github.event.client_payload.module}} - ${{github.event.client_payload.sha}}"
