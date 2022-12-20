@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken'
 
 
 const signAsync = promisify(jwt.sign)
-
 export interface JWT_Data {
   id: string,
   email: string,
