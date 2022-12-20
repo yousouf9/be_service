@@ -6,9 +6,10 @@ const signAsync = promisify(jwt.sign)
 export interface JWT_Data {
   id: string,
   email: string,
+  username: string
 }
 
-const secret = process.env.JWT_KEY!;
+const secret = process.env.JWT_KEY! || "NOT_SAFE";
 
 export class JWT {
   static async getToken(data:JWT_Data): Promise<string>{
