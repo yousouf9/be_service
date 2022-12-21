@@ -9,7 +9,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import {typeDefs} from './shared/src';
-import resolvers  from './resolvers';
+import {resolver}  from './resolvers';
 
 const MONGODB = process.env.DB_URL as string;
 
@@ -17,14 +17,13 @@ const MONGODB = process.env.DB_URL as string;
 const app = express();
 const httpServer = http.createServer(app);
 
-
 const server = new ApolloServer({
     typeDefs,
-    resolvers,
+    resolvers:resolver,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
- server.start().then();
+await server.start()
 
  app.use(
   cors(),
@@ -33,7 +32,7 @@ const server = new ApolloServer({
 );
 
 
-console.log(`🚀 Server ready at http://localhost:4000`);
+console.log(`Server ready at http://localhost:4000`);
 
 mongoose.connect(MONGODB)
     .then(() => {

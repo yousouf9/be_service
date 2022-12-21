@@ -1,4 +1,4 @@
-import {AuthenticationError} from 'apollo-server-express'
+import { GraphQLError } from 'graphql';
 import {JWT} from '../helper/Jwt'
 
 
@@ -12,7 +12,11 @@ export default function(context:any){
          const user = JWT.verifyToken(token);
          return user
       }catch(err){
-        throw new AuthenticationError("Invalid or expired toek")
+        throw new GraphQLError("Invalid or expired token", {
+          extensions: {
+            code: 'UNAUTHENTICATED',
+          },
+        });
       }
     }
     throw new Error("Authorization token must be Bearer {Token}");

@@ -1,9 +1,10 @@
-import userResolver from './users';
-export default {
+import {resolvers} from './users';
+
+export const resolver = {
   Query:{
-    ...userResolver.Query
+    ...resolvers.Query
   },
   Mutation:{
-    ...userResolver.Mutation
+    ...resolvers.Mutation
   }
 }
