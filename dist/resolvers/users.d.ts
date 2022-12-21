@@ -23,19 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-type registrationInput = {
-    registerInput: {
-        username: string;
-        email: string;
-        password: string;
-    };
-};
-type loginingInput = {
-    loginInput: {
-        email: string;
-        password: string;
-    };
-};
+import { loginingInput, registrationInput } from "../shared/src";
 export declare const resolvers: {
     Mutation: {
         registerUser(_: any, { registerInput: { username, email, password } }: registrationInput): Promise<{
@@ -61,4 +49,3 @@ export declare const resolvers: {
         }, {}, import("../shared/src/Schema/ModelSchema").UserI>;
     };
 };
-export {};

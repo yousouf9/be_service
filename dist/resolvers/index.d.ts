@@ -34,24 +34,13 @@ export declare const resolver: {
         }, {}, import("../shared/src/Schema/ModelSchema").UserI>;
     };
     Mutation: {
-        registerUser(_: any, { registerInput: { username, email, password } }: {
-            registerInput: {
-                username: string;
-                email: string;
-                password: string;
-            };
-        }): Promise<{
+        registerUser(_: any, { registerInput: { username, email, password } }: import("../shared/src").registrationInput): Promise<{
             id: any;
             username: string;
             email: string;
             token: string;
         }>;
-        loginUser(_: any, { loginInput: { email, password } }: {
-            loginInput: {
-                email: string;
-                password: string;
-            };
-        }): Promise<{
+        loginUser(_: any, { loginInput: { email, password } }: import("../shared/src").loginingInput): Promise<{
             id: any;
             username: string;
             email: string;

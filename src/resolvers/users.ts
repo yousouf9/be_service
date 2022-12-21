@@ -3,15 +3,8 @@ import { GraphQLError } from 'graphql';
 import { ErrorCodes } from "../helper/error-codes";
 import {JWT} from '../helper/Jwt';
 import { Password } from "../shared/src/services/Password";
+import { loginingInput, registrationInput } from "../shared/src";
 
-
-type registrationInput ={
-  registerInput:{username:string, email:string, password:string}
-}
-
-type loginingInput = {
-  loginInput:{email:string, password:string}
-}
 
 export const  resolvers = {
     Mutation: {
