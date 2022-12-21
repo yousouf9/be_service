@@ -1,7 +1,7 @@
 # BACKEND SERVICE FOR USER REGISTRATION USING SUBMODULES
 
 #To clone application with all it submodules
-git clone https://github.com/cameronmcnz/surface.git
+git clone https://github.com/yousouf9/be_service.git
 git submodule init
 git submodule update
 
