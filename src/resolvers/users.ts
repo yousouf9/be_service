@@ -10,7 +10,7 @@ type registrationInput ={
 }
 
 type loginingInput = {
-  registerInput:{email:string, password:string}
+  loginInput:{email:string, password:string}
 }
 
 export const  resolvers = {
@@ -24,7 +24,6 @@ export const  resolvers = {
               },
             });
           }
-
           const newuser = new User({username, email, password});
 
          const token = await JWT.getToken({username, email,id: newuser.id})
@@ -38,7 +37,7 @@ export const  resolvers = {
           token: user.token
         }
         },
-        async loginUser(_:any, {registerInput:{email, password}}:loginingInput) {
+        async loginUser(_:any, {loginInput:{email, password}}:loginingInput) {
           const user = await User.findOne({email});
           if(!user){
             throw new GraphQLError(`Invalid user or password`, {

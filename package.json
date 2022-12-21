@@ -2,10 +2,13 @@
   "name": "be_service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "start": "ts-node-dev src/app.ts"
+    "postinstall": "npm run compile",
+    "compile": "tsc",
+    "dev": "npm run compile && nodemon --experimental-specifier-resolution=node ./dist/index.js",
+    "start": "npm run compile && node --experimental-specifier-resolution=node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -20,8 +23,13 @@
     "express": "^4.18.2",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
-    "package": "./src/shared",
+    "mongoose": "^6.8.1",
+    "nodemon": "^2.0.20",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/node": "^18.6.3"
   }
 }

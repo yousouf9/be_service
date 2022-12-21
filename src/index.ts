@@ -39,8 +39,5 @@ mongoose.connect(MONGODB)
         console.log("MongoDB Connected");
         return httpServer.listen({ port: 4000 });
     })
-    .then((res) => {
-        console.log(`Server running at ${res}`)
-    });
 
 
